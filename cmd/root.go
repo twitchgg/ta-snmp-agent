@@ -7,6 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"ntsc.ac.cn/st-pcie-a/card/pkg/snmp"
 	ccmd "ntsc.ac.cn/ta-registry/pkg/cmd"
 	"ntsc.ac.cn/ta-snmp-agent/internal/common"
 )
@@ -49,6 +50,7 @@ func Execute() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+	snmp.NewTrapServer(nil)
 }
 
 var tasClient *common.TASClient
